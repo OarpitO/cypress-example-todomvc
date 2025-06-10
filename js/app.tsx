@@ -15,6 +15,7 @@ import { TodoItem } from "./todoItem";
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS, ENTER_KEY } from "./constants";
 
 class TodoApp extends React.Component<IAppProps, IAppState> {
+  public breakMode = true; // <-- Add this flag
 
   public state : IAppState;
 
@@ -58,6 +59,10 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public toggle(todoToToggle : ITodo) {
+    if (this.breakMode && Math.random() < 0.7) {
+      // 70% of the time, do nothing (simulate a flaky bug)
+      return;
+    }
     this.props.model.toggle(todoToToggle);
   }
 
