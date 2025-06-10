@@ -58,7 +58,7 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
   }
 
   public toggle(todoToToggle : ITodo) {
-    this.props.model.toggle(todoToToggle);
+    // this.props.model.toggle(todoToToggle);
   }
 
   public destroy(todo : ITodo) {
